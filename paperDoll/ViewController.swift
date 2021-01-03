@@ -153,12 +153,14 @@ class ViewController: UIViewController {
             peopleCopyView.isHidden = false
         }
     }
+    //遮色片調色slider
     @IBAction func maskColorSlider(_ sender: UISlider) {
         currentMaskColor.backgroundColor = UIColor(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1)
         redSliderText.text = String(format: "%.2f",redSlider.value)
         greenSliderText.text = String(format:"%.2f", greenSlider.value)
         blueSliderText.text = String(format:"%.2f", blueSlider.value)
     }
+    //三原色slider開關
     @IBAction func sliderEnabledSwitch(_ sender: UISwitch) {
         if redSwitch.isOn {
             redSlider.isEnabled = true
