@@ -8,38 +8,35 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-
     @IBOutlet weak var headView: UIScrollView!
     @IBOutlet weak var bodyView: UIScrollView!
     @IBOutlet weak var faceView: UIScrollView!
     @IBOutlet weak var colorView: UIView!
-
     @IBOutlet weak var maskView: UIView!
     @IBOutlet weak var currentMaskColor: UIView!
-    
+    //peopleView
     @IBOutlet weak var peopleView: UIView!
     @IBOutlet weak var faceImageView: UIImageView!
     @IBOutlet weak var headImageView: UIImageView!
     @IBOutlet weak var bodyImageView: UIImageView!
-    
+    //peopleView分身
     @IBOutlet weak var peopleCopyView: UIView!
     @IBOutlet weak var headCopyImageView: UIImageView!
     @IBOutlet weak var bodyCopyImageView: UIImageView!
     @IBOutlet weak var faceCopyImageView: UIImageView!
-    
+    //slider文字
     @IBOutlet weak var redSliderText: UILabel!
     @IBOutlet weak var greenSliderText: UILabel!
     @IBOutlet weak var blueSliderText: UILabel!
-    
+    //slider
     @IBOutlet weak var redSlider: UISlider!
     @IBOutlet weak var greenSlider: UISlider!
     @IBOutlet weak var blueSlider: UISlider!
+    //switch
     @IBOutlet weak var redSwitch: UISwitch!
     @IBOutlet weak var greenSwitch: UISwitch!
     @IBOutlet weak var blueSwitch: UISwitch!
     @IBOutlet weak var maskTurnOnSwitch: UISwitch!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,9 +55,8 @@ class ViewController: UIViewController {
         redSlider.isEnabled = false
         greenSlider.isEnabled = false
         blueSlider.isEnabled = false
-        
     }
-    
+    //隨機圖案
     @IBAction func selectQuestion(_ sender: UIButton) {
         let numberFace = Int.random(in: 1...27)
         faceImageView.image = UIImage(named: "face\(numberFace)")
@@ -73,37 +69,36 @@ class ViewController: UIViewController {
         let numberBody = Int.random(in: 1...27)
         bodyImageView.image = UIImage(named: "body\(numberBody)")
         bodyCopyImageView.image = UIImage(named: "body\(numberBody)")
-        
     }
-
+    //選擇頭部
     @IBAction func selectHead(_ sender: UIButton) {
         headView.isHidden = false
         bodyView.isHidden = true
         faceView.isHidden = true
         colorView.isHidden = true
     }
-    
+    //選擇身體
     @IBAction func selectBody(_ sender: UIButton) {
         bodyView.isHidden = false
         headView.isHidden = true
         faceView.isHidden = true
         colorView.isHidden = true
     }
-    
+    //選擇表情
     @IBAction func selectFace(_ sender: UIButton) {
         faceView.isHidden = false
         headView.isHidden = true
         bodyView.isHidden = true
         colorView.isHidden = true
     }
-    
+    //選擇調色
     @IBAction func selectBrush(_ sender: UIButton) {
         colorView.isHidden = false
         headView.isHidden = true
         faceView.isHidden = true
         bodyView.isHidden = true
     }
-    
+    //頭部圖案
     @IBAction func itemHead(_ sender: UIButton) {
         if maskTurnOnSwitch.isOn {
             headImageView.image = sender.currentImage
@@ -113,7 +108,7 @@ class ViewController: UIViewController {
             headImageView.image = headCopyImageView.image
         }
     }
-    
+    //身體圖案
     @IBAction func itemBody(_ sender: UIButton) {
         if maskTurnOnSwitch.isOn {
             bodyImageView.image = sender.currentImage
@@ -122,9 +117,8 @@ class ViewController: UIViewController {
             bodyCopyImageView.image = sender.currentImage
             bodyImageView.image = bodyCopyImageView.image
         }
-        
     }
-    
+    //表情圖案
     @IBAction func itemFace(_ sender: UIButton) {
         if maskTurnOnSwitch.isOn {
             faceImageView.image = sender.currentImage
@@ -133,9 +127,7 @@ class ViewController: UIViewController {
             faceCopyImageView.image = sender.currentImage
             faceImageView.image = faceCopyImageView.image
         }
-        
     }
-
     //遮色片開關
     @IBAction func changeMaskColor(_ sender: UISwitch) {
         if maskTurnOnSwitch.isOn{
@@ -177,10 +169,6 @@ class ViewController: UIViewController {
         }else {
             blueSlider.isEnabled = false
         }
-        
     }
-    
-    
-    
 }
 
